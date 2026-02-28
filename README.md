@@ -1,6 +1,30 @@
-# 🛡️ TokPinch
+# 🔐 TokPinch
+**Stop burning money on AI API calls.**
 
-TokPinch is a self-hosted API proxy that sits between your AI coding agent (Claude Code, OpenClaw, Cursor, etc.) and the Anthropic / OpenAI APIs. Every request flows through it, so you get per-request cost tracking, daily and monthly budget enforcement with automatic request pausing, loop detection that catches runaway agents before they drain your wallet, smart model routing to downgrade expensive models automatically, and a real-time dashboard to watch it all happen — without changing anything in your agent's code beyond its base URL.
+TokPinch is a cost management proxy for [OpenClaw](https://github.com/openclaw/openclaw). It sits between your agent and LLM providers, tracking every token, enforcing budgets, detecting runaway loops, and routing to cheaper models — automatically.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://img.shields.io/badge/tests-97%2F97-brightgreen)]()
+[![Node](https://img.shields.io/badge/node-%3E%3D20-blue)]()
+
+---
+
+## Why TokPinch?
+
+**One line to set up:**
+```bash
+ANTHROPIC_BASE_URL=http://localhost:4100/v1
+```
+
+**What you get:**
+- 📊 Real-time cost tracking across Anthropic & OpenAI
+- 💰 Budget enforcement — daily & monthly limits that actually block requests
+- 🔄 Loop detection — catches runaway agents before they drain your wallet
+- 🧠 Smart routing — auto-downgrade cheap tasks to Haiku (save 10–50%)
+- 📱 Telegram & email alerts with daily cost digests
+- 🖥️ Beautiful dark-mode dashboard with live WebSocket updates
+- 🔒 Security hardened — API keys never stored or logged
+- 🐳 Docker ready with one command
 
 ---
 
@@ -111,13 +135,10 @@ Routing rules live in `data/routing-rules.json` and define which models get down
 
 Navigate to `http://localhost:4100/dashboard` and log in with your `DASHBOARD_PASSWORD`.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  [screenshot placeholder — Overview page]               │
-│  Today's Cost  /  Monthly  /  Requests  /  Saved        │
-│  Cost chart  ·  Model breakdown  ·  Live feed           │
-└─────────────────────────────────────────────────────────┘
-```
+<!-- Add dashboard screenshots here -->
+![Overview](screenshots/overview.png)
+![Sessions](screenshots/sessions.png)
+![Budget](screenshots/budget.png)
 
 Pages: **Overview** · **Sessions** · **Budget** · **Alerts** · **Settings**
 
